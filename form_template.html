@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>RichWealth 2.0 — Seminar Registration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf6ec; --cream2:#f3ecd9; --gold:#b08d2e; --gold-dark:#8a6d1f;
+    --navy:#12233f; --green:#1e6b3a; --text:#2a2a2a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Montserrat',sans-serif; color:var(--text);
+    background:linear-gradient(180deg,var(--cream) 0%,var(--cream2) 100%);
+    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:22px 14px;
+  }
+  .card{
+    width:100%; max-width:560px; background:#fffdf7;
+    border:1px solid #e2d5ae; border-radius:18px;
+    box-shadow:0 14px 40px rgba(18,35,63,.12);
+    padding:34px 26px 30px; text-align:center; position:relative; overflow:hidden;
+  }
+  .card::before{content:""; position:absolute; inset:10px; border:1.5px solid #d9c98f; border-radius:12px; pointer-events:none;}
+  .card > *{position:relative;}
+  h1{font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--navy); margin-bottom:6px;}
+  .sub{font-size:.92rem; color:#555; margin-bottom:18px;}
+  .sub b{color:var(--navy);}
+  .tick{
+    width:64px; height:64px; margin:22px auto 12px; border-radius:50%;
+    background:var(--green); color:#fff; font-size:2rem; line-height:64px; font-weight:700;
+    box-shadow:0 6px 18px rgba(30,107,58,.35);
+  }
+  .linkbox{background:var(--navy); border-radius:14px; padding:22px 18px 24px; margin:0 0 16px;}
+  .linkbox .lbl{font-size:.7rem; letter-spacing:.25em; color:#d9c98f; text-transform:uppercase; margin-bottom:10px;}
+  .linkbox .big{font-size:1.05rem; color:#ffe9a8; font-weight:800; line-height:1.55; margin-bottom:14px;}
+  .linkbox .big .guj2{display:block; font-size:.92rem; color:#fff; font-weight:600; margin-top:8px;}
+  .btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+  .btn{
+    border:none; cursor:pointer; border-radius:999px; font-family:'Montserrat',sans-serif;
+    font-weight:800; font-size:1rem; padding:13px 26px; letter-spacing:.02em; text-decoration:none; display:inline-block;
+  }
+  .btn-copy{background:linear-gradient(135deg,#e6c866,#b08d2e); color:var(--navy);}
+  .sched{
+    background:var(--cream); border:1px solid #e2d5ae; border-radius:12px;
+    padding:14px 12px; margin-bottom:16px; font-size:.9rem;
+  }
+  .sched .t{font-weight:800; color:var(--gold-dark); letter-spacing:.14em; font-size:.75rem; text-transform:uppercase; margin-bottom:6px;}
+  .sched b{color:var(--navy);}
+  .note{font-size:.8rem; color:#777; line-height:1.5;}
+  .note a{color:var(--green); font-weight:700; text-decoration:none;}
+  .foot{margin-top:14px; font-size:.72rem; letter-spacing:.18em; color:var(--gold-dark); text-transform:uppercase;}
+  form{text-align:left;}
+  .fld{margin-bottom:14px;}
+  .fld label{display:block; font-size:.8rem; font-weight:700; color:var(--navy); margin-bottom:6px;}
+  .fld label .guj{color:var(--gold-dark); font-weight:600;}
+  .fld input[type=text], .fld input[type=tel]{
+    width:100%; padding:12px 14px; font-family:'Montserrat',sans-serif; font-size:1rem;
+    background:var(--cream); border:1px solid #d9c98f; border-radius:10px; color:var(--text);
+  }
+  .fld input:focus{outline:2px solid var(--gold); background:#fff;}
+  .opts{display:flex; flex-direction:column; gap:8px;}
+  .opt{
+    display:flex; align-items:center; gap:10px; background:var(--cream);
+    border:1px solid #d9c98f; border-radius:10px; padding:11px 13px; cursor:pointer; font-size:.92rem;
+  }
+  .opt input{accent-color:var(--gold-dark); width:18px; height:18px; flex:none;}
+  .opt:has(input:checked){background:#fdf3d7; border-color:var(--gold);}
+  .row2{display:flex; gap:8px;}
+  .row2 .opt{flex:1; justify-content:center;}
+  .hint{font-size:.72rem; color:#999; margin-top:4px;}
+  .btn-submit{
+    width:100%; margin-top:6px; background:linear-gradient(135deg,#e6c866,#b08d2e);
+    color:var(--navy); font-size:1.1rem; padding:15px;
+  }
+  .btn-submit:disabled{opacity:.6; cursor:wait;}
+  .err{color:#a3222d; font-size:.78rem; margin-top:4px; display:none;}
+  #confirmview{display:none;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <img src="__LOGO__" alt="Richwealth - Happy Family, Happy You - Trusted Since 2011" style="width:210px; max-width:65%; height:auto; display:block; margin:0 auto 8px;">
+
+    <div id="formview">
+      <h1>Seminar Registration</h1>
+      <p class="sub"><b>RICHWEALTH 2.0</b> — Offline Seminar / ઑફલાઇન સેમિનાર<br>
+      <span style="font-size:.85rem;">Venue, date &amp; time will be sent on your WhatsApp / સ્થળ, તારીખ અને સમય તમારા વોટ્સએપ પર મોકલવામાં આવશે</span></p>
+
+      <form id="regform" novalidate>
+        <div class="fld">
+          <label>Full Name <span class="guj">/ પૂરું નામ</span> *</label>
+          <input type="text" id="f_name" autocomplete="name">
+        </div>
+        <div class="fld">
+          <label>WhatsApp Number <span class="guj">/ વોટ્સએપ નંબર</span> *</label>
+          <input type="tel" id="f_phone" inputmode="numeric" autocomplete="tel" placeholder="99131 21121">
+          <div class="hint">Seminar venue &amp; details will be sent on this number / આ નંબર પર સેમિનારની વિગતો મોકલવામાં આવશે</div>
+        </div>
+        <div class="fld">
+          <label>City / Village <span class="guj">/ શહેર / ગામ</span> *</label>
+          <input type="text" id="f_city">
+        </div>
+        <div class="fld">
+          <label>Occupation <span class="guj">/ વ્યવસાય</span> *</label>
+          <input type="text" id="f_occ">
+        </div>
+        <div class="fld">
+          <label>Are you an existing Richwealth investor? <span class="guj">/ શું તમે રિચવેલ્થના રોકાણકાર છો?</span> *</label>
+          <div class="row2">
+            <label class="opt"><input type="radio" name="inv" value="Yes / હા">Yes / હા</label>
+            <label class="opt"><input type="radio" name="inv" value="No / ના">No / ના</label>
+          </div>
+        </div>
+        <div class="fld">
+          <label>How many people will attend? <span class="guj">/ કેટલા લોકો આવશે?</span> *</label>
+          <div class="row2">
+            <label class="opt"><input type="radio" name="cnt" value="1">1</label>
+            <label class="opt"><input type="radio" name="cnt" value="2">2</label>
+            <label class="opt"><input type="radio" name="cnt" value="3">3</label>
+            <label class="opt"><input type="radio" name="cnt" value="4+">4+</label>
+          </div>
+        </div>
+        <div class="fld">
+          <label>Who invited you to this seminar? <span class="guj">/ તમને આ આમંત્રણ કોણે મોકલ્યું?</span> *</label>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="src" value="Richwealth Employee / રિચવેલ્થના કર્મચારી">Richwealth Employee / રિચવેલ્થના કર્મચારી</label>
+            <label class="opt"><input type="radio" name="src" value="Existing Investor / હાલના રોકાણકાર">Existing Investor / હાલના રોકાણકાર</label>
+            <label class="opt"><input type="radio" name="src" value="WhatsApp Channel / વોટ્સએપ ચેનલ">WhatsApp Channel / વોટ્સએપ ચેનલ</label>
+            <label class="opt"><input type="radio" name="src" value="Other Source / અન્ય">Other Source / અન્ય</label>
+          </div>
+        </div>
+        <div class="fld">
+          <label>Name of Employee / Investor who invited you <span class="guj">/ આમંત્રણ આપનારનું નામ</span> *</label>
+          <input type="text" id="f_ref" placeholder='Write "-" if none / લાગુ ન હોય તો "-" લખો'>
+        </div>
+        <div class="err" id="errmsg">Please fill all required fields / કૃપા કરીને બધી માહિતી ભરો</div>
+        <button type="submit" class="btn btn-submit" id="subbtn">✓ REGISTER / રજીસ્ટર કરો</button>
+      </form>
+    </div>
+
+    <div id="confirmview">
+      <div class="tick">✓</div>
+      <h1>Registration Confirmed!</h1>
+      <p class="sub"><b>RICHWEALTH 2.0</b> — Offline Seminar / ઑફલાઇન સેમિનાર</p>
+      <div class="linkbox">
+        <div class="lbl">What Happens Next</div>
+        <div class="big">📲 Seminar venue, date &amp; time will be sent to you on your WhatsApp number.
+          <span class="guj2">સેમિનારનું સ્થળ, તારીખ અને સમય તમારા વોટ્સએપ નંબર પર મોકલવામાં આવશે.</span>
+        </div>
+      </div>
+      <p class="note">Need help? Call / WhatsApp <a href="https://wa.me/919913121121">+91 99131 21121</a></p>
+    </div>
+
+    <div class="foot">Richwealth · 15 Years of Trust · 19 States · 200+ Cities</div>
+  </div>
+
+  <iframe name="gsink" id="gsink" style="display:none"></iframe>
+  <form id="gform" action="https://docs.google.com/forms/d/e/__FORM_ID__/formResponse"
+        method="POST" target="gsink" style="display:none">
+    <input name="entry.__E_NAME__"><input name="entry.__E_PHONE__"><input name="entry.__E_CITY__">
+    <input name="entry.__E_OCC__"><input name="entry.__E_INV__"><input name="entry.__E_CNT__">
+    <input name="entry.__E_SRC__"><input name="entry.__E_REF__"><input name="fvv" value="1"><input name="pageHistory" value="0">
+  </form>
+
+<script>
+function showConfirm(){
+  document.getElementById("formview").style.display = "none";
+  document.getElementById("confirmview").style.display = "block";
+  window.scrollTo(0, 0);
+}
+if (location.search.indexOf("s=1") !== -1 || location.hash === "#done") { showConfirm(); }
+
+function radioVal(name){
+  var r = document.querySelector('input[name="' + name + '"]:checked');
+  return r ? r.value : "";
+}
+var done = false;
+document.getElementById("regform").addEventListener("submit", function(ev){
+  ev.preventDefault();
+  var vals = {
+    "entry.__E_NAME__": document.getElementById("f_name").value.trim(),
+    "entry.__E_PHONE__": document.getElementById("f_phone").value.trim(),
+    "entry.__E_CITY__": document.getElementById("f_city").value.trim(),
+    "entry.__E_OCC__": document.getElementById("f_occ").value.trim(),
+    "entry.__E_INV__": radioVal("inv"),
+    "entry.__E_CNT__": radioVal("cnt"),
+    "entry.__E_SRC__": radioVal("src"),
+    "entry.__E_REF__": document.getElementById("f_ref").value.trim() || "-"
+  };
+  var missing = false;
+  for (var k in vals) { if (!vals[k]) missing = true; }
+  var phone = vals["entry.__E_PHONE__"].replace(/\D/g, "");
+  if (phone.length < 10) missing = true;
+  var err = document.getElementById("errmsg");
+  if (missing) { err.style.display = "block"; return; }
+  err.style.display = "none";
+  var gf = document.getElementById("gform");
+  for (var k in vals) { gf.querySelector('[name="' + k + '"]').value = vals[k]; }
+  var btn = document.getElementById("subbtn");
+  btn.disabled = true;
+  btn.textContent = "Submitting... / સબમિટ થઈ રહ્યું છે...";
+  document.getElementById("gsink").onload = function(){ if(!done){ done = true; showConfirm(); } };
+  gf.submit();
+  setTimeout(function(){ if(!done){ done = true; showConfirm(); } }, 5000);
+});
+</script>
+</body>
+</html>
