@@ -159,11 +159,11 @@
   </div>
 
   <iframe name="gsink" id="gsink" style="display:none"></iframe>
-  <form id="gform" action="https://docs.google.com/forms/d/e/__FORM_ID__/formResponse"
+  <form id="gform" action="https://docs.google.com/forms/d/e/1FAIpQLSe_1AiUpPLv2H1Z5B-IkGMloIOYN1pakgyExwtYpVcGvcA5Kg/formResponse"
         method="POST" target="gsink" style="display:none">
-    <input name="entry.__E_NAME__"><input name="entry.__E_PHONE__"><input name="entry.__E_CITY__">
-    <input name="entry.__E_OCC__"><input name="entry.__E_INV__"><input name="entry.__E_CNT__">
-    <input name="entry.__E_SRC__"><input name="entry.__E_REF__"><input name="fvv" value="1"><input name="pageHistory" value="0">
+    <input name="entry.1008521861"><input name="entry.1575132814"><input name="entry.882496880">
+    <input name="entry.2049252346"><input name="entry.351091380"><input name="entry.13852270">
+    <input name="entry.796520081"><input name="entry.8602321"><input name="fvv" value="1"><input name="pageHistory" value="0">
   </form>
 
 <script>
@@ -182,18 +182,18 @@ var done = false;
 document.getElementById("regform").addEventListener("submit", function(ev){
   ev.preventDefault();
   var vals = {
-    "entry.__E_NAME__": document.getElementById("f_name").value.trim(),
-    "entry.__E_PHONE__": document.getElementById("f_phone").value.trim(),
-    "entry.__E_CITY__": document.getElementById("f_city").value.trim(),
-    "entry.__E_OCC__": document.getElementById("f_occ").value.trim(),
-    "entry.__E_INV__": radioVal("inv"),
-    "entry.__E_CNT__": radioVal("cnt"),
-    "entry.__E_SRC__": radioVal("src"),
-    "entry.__E_REF__": document.getElementById("f_ref").value.trim() || "-"
+    "entry.1008521861": document.getElementById("f_name").value.trim(),
+    "entry.1575132814": document.getElementById("f_phone").value.trim(),
+    "entry.882496880": document.getElementById("f_city").value.trim(),
+    "entry.2049252346": document.getElementById("f_occ").value.trim(),
+    "entry.351091380": radioVal("inv"),
+    "entry.13852270": radioVal("cnt"),
+    "entry.796520081": radioVal("src"),
+    "entry.8602321": document.getElementById("f_ref").value.trim() || "-"
   };
   var missing = false;
   for (var k in vals) { if (!vals[k]) missing = true; }
-  var phone = vals["entry.__E_PHONE__"].replace(/\D/g, "");
+  var phone = vals["entry.1575132814"].replace(/\D/g, "");
   if (phone.length < 10) missing = true;
   var err = document.getElementById("errmsg");
   if (missing) { err.style.display = "block"; return; }
