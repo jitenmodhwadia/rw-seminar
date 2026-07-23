@@ -79,6 +79,10 @@
   .btn-submit:disabled{opacity:.6; cursor:wait;}
   .err{color:#a3222d; font-size:.78rem; margin-top:4px; display:none;}
   #confirmview{display:none;}
+  .when{margin:14px auto 14px; padding:12px 14px; max-width:420px; background:var(--cream); border:1px solid #e2d5ae; border-radius:12px;}
+  .when-en{font-size:1.02rem; font-weight:800; color:var(--navy); margin-bottom:7px;}
+  .when-guj{font-size:.94rem; font-weight:700; color:var(--gold-dark);}
+  .venuenote{font-size:.8rem; color:#777; line-height:1.7; margin-bottom:18px;}
 </style>
 </head>
 <body>
@@ -87,10 +91,12 @@
 
     <div id="formview">
       <h1>Seminar Registration</h1>
-      <p class="sub"><b>RICHWEALTH 2.0</b> — Seminar / સેમિનાર<br>
-      <span style="font-size:.95rem; font-weight:800; color:var(--navy);">Sunday, 2 August 2026 · 11:00 AM</span><br>
-      <span style="font-size:.88rem; font-weight:700; color:var(--gold-dark);">રવિવાર, ૨ ઓગસ્ટ ૨૦૨૬ · સવારે ૧૧:૦૦ વાગ્યે</span><br>
-      <span style="font-size:.8rem;">Venue will be sent on your WhatsApp after registration / રજીસ્ટ્રેશન પછી સ્થળની વિગતો વોટ્સએપ પર મોકલવામાં આવશે</span></p>
+      <p class="sub" style="margin-bottom:0;"><b>RICHWEALTH 2.0</b> — Seminar / સેમિનાર</p>
+      <div class="when">
+        <div class="when-en">Sunday, 2 August 2026 · 11:00 AM</div>
+        <div class="when-guj">રવિવાર, ૨ ઓગસ્ટ ૨૦૨૬ · સવારે ૧૧:૦૦ વાગ્યે</div>
+      </div>
+      <div class="venuenote">Venue will be sent on your WhatsApp after registration<br>રજીસ્ટ્રેશન પછી સ્થળની વિગતો વોટ્સએપ પર મોકલવામાં આવશે</div>
 
       <form id="regform" novalidate>
         <div class="fld">
@@ -138,9 +144,11 @@
     <div id="confirmview">
       <div class="tick">✓</div>
       <h1>Registration Confirmed!</h1>
-      <p class="sub"><b>RICHWEALTH 2.0</b> — Seminar / સેમિનાર<br>
-      <span style="font-size:.95rem; font-weight:800; color:var(--navy);">Sunday, 2 August 2026 · 11:00 AM</span><br>
-      <span style="font-size:.88rem; font-weight:700; color:var(--gold-dark);">રવિવાર, ૨ ઓગસ્ટ ૨૦૨૬ · સવારે ૧૧:૦૦ વાગ્યે</span></p>
+      <p class="sub" style="margin-bottom:0;"><b>RICHWEALTH 2.0</b> — Seminar / સેમિનાર</p>
+      <div class="when">
+        <div class="when-en">Sunday, 2 August 2026 · 11:00 AM</div>
+        <div class="when-guj">રવિવાર, ૨ ઓગસ્ટ ૨૦૨૬ · સવારે ૧૧:૦૦ વાગ્યે</div>
+      </div>
       <div class="linkbox">
         <div class="lbl">What Happens Next</div>
         <div class="big">📲 The seminar venue will be sent to you on your WhatsApp number.
