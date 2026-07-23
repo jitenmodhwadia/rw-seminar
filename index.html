@@ -88,7 +88,9 @@
     <div id="formview">
       <h1>Seminar Registration</h1>
       <p class="sub"><b>RICHWEALTH 2.0</b> — Offline Seminar / ઑફલાઇન સેમિનાર<br>
-      <span style="font-size:.85rem;">Venue, date &amp; time will be sent on your WhatsApp / સ્થળ, તારીખ અને સમય તમારા વોટ્સએપ પર મોકલવામાં આવશે</span></p>
+      <span style="font-size:.95rem; font-weight:800; color:var(--navy);">Sunday, 2 August 2026 · 11:00 AM</span><br>
+      <span style="font-size:.88rem; font-weight:700; color:var(--gold-dark);">રવિવાર, ૨ ઓગસ્ટ ૨૦૨૬ · સવારે ૧૧:૦૦ વાગ્યે</span><br>
+      <span style="font-size:.8rem;">Venue will be sent on your WhatsApp after registration / રજીસ્ટ્રેશન પછી સ્થળની વિગતો વોટ્સએપ પર મોકલવામાં આવશે</span></p>
 
       <form id="regform" novalidate>
         <div class="fld">
@@ -116,15 +118,6 @@
           </div>
         </div>
         <div class="fld">
-          <label>How many people will attend? <span class="guj">/ કેટલા લોકો આવશે?</span> *</label>
-          <div class="row2">
-            <label class="opt"><input type="radio" name="cnt" value="1">1</label>
-            <label class="opt"><input type="radio" name="cnt" value="2">2</label>
-            <label class="opt"><input type="radio" name="cnt" value="3">3</label>
-            <label class="opt"><input type="radio" name="cnt" value="4+">4+</label>
-          </div>
-        </div>
-        <div class="fld">
           <label>Who invited you to this seminar? <span class="guj">/ તમને આ આમંત્રણ કોણે મોકલ્યું?</span> *</label>
           <div class="opts">
             <label class="opt"><input type="radio" name="src" value="Richwealth Employee / રિચવેલ્થના કર્મચારી">Richwealth Employee / રિચવેલ્થના કર્મચારી</label>
@@ -145,11 +138,13 @@
     <div id="confirmview">
       <div class="tick">✓</div>
       <h1>Registration Confirmed!</h1>
-      <p class="sub"><b>RICHWEALTH 2.0</b> — Offline Seminar / ઑફલાઇન સેમિનાર</p>
+      <p class="sub"><b>RICHWEALTH 2.0</b> — Offline Seminar / ઑફલાઇન સેમિનાર<br>
+      <span style="font-size:.95rem; font-weight:800; color:var(--navy);">Sunday, 2 August 2026 · 11:00 AM</span><br>
+      <span style="font-size:.88rem; font-weight:700; color:var(--gold-dark);">રવિવાર, ૨ ઓગસ્ટ ૨૦૨૬ · સવારે ૧૧:૦૦ વાગ્યે</span></p>
       <div class="linkbox">
         <div class="lbl">What Happens Next</div>
-        <div class="big">📲 Seminar venue, date &amp; time will be sent to you on your WhatsApp number.
-          <span class="guj2">સેમિનારનું સ્થળ, તારીખ અને સમય તમારા વોટ્સએપ નંબર પર મોકલવામાં આવશે.</span>
+        <div class="big">📲 The seminar venue will be sent to you on your WhatsApp number.
+          <span class="guj2">સેમિનારનું સ્થળ તમારા વોટ્સએપ નંબર પર મોકલવામાં આવશે.</span>
         </div>
       </div>
       <p class="note">Need help? Call / WhatsApp <a href="https://wa.me/919913121121">+91 99131 21121</a></p>
@@ -162,7 +157,7 @@
   <form id="gform" action="https://docs.google.com/forms/d/e/1FAIpQLSe_1AiUpPLv2H1Z5B-IkGMloIOYN1pakgyExwtYpVcGvcA5Kg/formResponse"
         method="POST" target="gsink" style="display:none">
     <input name="entry.1008521861"><input name="entry.1575132814"><input name="entry.882496880">
-    <input name="entry.2049252346"><input name="entry.351091380"><input name="entry.13852270">
+    <input name="entry.2049252346"><input name="entry.351091380">
     <input name="entry.796520081"><input name="entry.8602321"><input name="fvv" value="1"><input name="pageHistory" value="0">
   </form>
 
@@ -187,7 +182,6 @@ document.getElementById("regform").addEventListener("submit", function(ev){
     "entry.882496880": document.getElementById("f_city").value.trim(),
     "entry.2049252346": document.getElementById("f_occ").value.trim(),
     "entry.351091380": radioVal("inv"),
-    "entry.13852270": radioVal("cnt"),
     "entry.796520081": radioVal("src"),
     "entry.8602321": document.getElementById("f_ref").value.trim() || "-"
   };
